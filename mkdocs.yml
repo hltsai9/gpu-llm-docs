@@ -61,6 +61,7 @@ markdown_extensions:
 
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/quiz.js
 
 nav:
   - Home: index.md
@@ -83,3 +84,21 @@ nav:
       - "Prefill vs. decode": 03-llm-inference/prefill-vs-decode.md
       - "Batching many diners at once": 03-llm-inference/batching.md
       - "Memory-bound vs. compute-bound": 03-llm-inference/roofline.md
+  - "Quizzes":
+      - quizzes/index.md
+      - "Part 1 — Why GPUs":
+          - "CPU vs GPU": quizzes/cpu-vs-gpu.md
+          - "Throughput vs latency": quizzes/throughput-vs-latency.md
+          - "SIMT": quizzes/simt.md
+      - "Part 2 — GPU Architecture":
+          - "Anatomy of a GPU": quizzes/anatomy.md
+          - "Memory hierarchy": quizzes/memory-hierarchy.md
+          - "Warps, threads, and blocks": quizzes/warps-threads-blocks.md
+          - "Tensor Cores": quizzes/tensor-cores.md
+      - "Part 3 — LLM Inference":
+          - "Life of a token": quizzes/life-of-a-token.md
+          - "Attention": quizzes/attention.md
+          - "KV cache": quizzes/kv-cache.md
+          - "Prefill vs. decode": quizzes/prefill-vs-decode.md
+          - "Batching": quizzes/batching.md
+          - "Roofline": quizzes/roofline.md
