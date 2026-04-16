@@ -1,0 +1,85 @@
+site_name: GPUs and LLMs — A Story-Driven Guide
+site_description: Learn GPU hardware and why it matters for large language models, told through analogies.
+site_author: Hsing-Lin
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: deep orange
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: deep orange
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - navigation.indexes
+    - toc.follow
+    - content.code.copy
+    - content.code.annotate
+    - search.highlight
+    - search.suggest
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - Home: index.md
+  - "Part 1 — Why GPUs":
+      - 01-why-gpu/index.md
+      - "The cafeteria vs. the steakhouse": 01-why-gpu/cpu-vs-gpu.md
+      - "Throughput over latency": 01-why-gpu/throughput-vs-latency.md
+      - "The synchronized kitchen (SIMT)": 01-why-gpu/simt.md
+  - "Part 2 — GPU Architecture":
+      - 02-gpu-architecture/index.md
+      - "Anatomy of a GPU": 02-gpu-architecture/anatomy.md
+      - "The memory hierarchy": 02-gpu-architecture/memory-hierarchy.md
+      - "Warps, threads, and blocks": 02-gpu-architecture/warps-threads-blocks.md
+      - "Tensor Cores: power tools": 02-gpu-architecture/tensor-cores.md
+  - "Part 3 — LLM Inference":
+      - 03-llm-inference/index.md
+      - "The life of a token": 03-llm-inference/life-of-a-token.md
+      - "Attention, explained slowly": 03-llm-inference/attention.md
+      - "The KV cache": 03-llm-inference/kv-cache.md
+      - "Prefill vs. decode": 03-llm-inference/prefill-vs-decode.md
+      - "Batching many diners at once": 03-llm-inference/batching.md
+      - "Memory-bound vs. compute-bound": 03-llm-inference/roofline.md

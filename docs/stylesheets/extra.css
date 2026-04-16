@@ -1,0 +1,60 @@
+/* Pull-quote style for analogies */
+.analogy {
+  border-left: 4px solid var(--md-accent-fg-color);
+  background: var(--md-code-bg-color);
+  padding: 0.8rem 1rem;
+  margin: 1rem 0;
+  border-radius: 4px;
+  font-style: italic;
+}
+
+.analogy::before {
+  content: "🍳 Analogy";
+  display: block;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--md-accent-fg-color);
+  margin-bottom: 0.35rem;
+}
+
+/* Compact key-term callout */
+.term {
+  display: inline-block;
+  padding: 0 0.35em;
+  background: var(--md-code-bg-color);
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+/* Chapter hero */
+.hero {
+  padding: 1.5rem 1.25rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(63,81,181,0.08), rgba(255,87,34,0.08));
+  margin-bottom: 1.5rem;
+}
+
+/* Simple numeric scoreboard */
+.numbers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+.numbers .cell {
+  background: var(--md-code-bg-color);
+  padding: 0.75rem;
+  border-radius: 6px;
+}
+.numbers .cell .n {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--md-accent-fg-color);
+}
+.numbers .cell .l {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
