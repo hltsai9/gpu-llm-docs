@@ -159,7 +159,12 @@
   function renderJsonMounts(root) {
     var mounts = (root || document).querySelectorAll(".quiz-mount");
     mounts.forEach(function (mount) {
-      if (mount.dataset.initialized === "1") return;
+      // If questions are already rendered in this mount, just ensure handlers
+      // are wired (wireQuiz is itself idempotent) and move on.
+      if (mount.querySelector(".q")) {
+        wireQuiz(mount);
+        return;
+      }
 
       // The data script is typically the immediate next sibling. Fall back to
       // any sibling within the same parent, then to a page-wide search.
@@ -169,7 +174,7 @@
           mount.nextElementSibling.matches('script.quiz-data,script[type="application/json"].quiz-data')
           ? mount.nextElementSibling
           : null) ||
-        mount.parentElement.querySelector('script.quiz-data,script[type="application/json"].quiz-data');
+        (mount.parentElement && mount.parentElement.querySelector('script.quiz-data,script[type="application/json"].quiz-data'));
 
       if (!script) {
         console.warn("[quiz] No quiz-data <script> found near mount", mount);
@@ -187,14 +192,13 @@
       var questions = (data && data.questions) || [];
       // Promote the mount to a fully-functional `.quiz` container.
       mount.classList.add("quiz");
-      // Clear anything inside (idempotent on re-runs).
-      while (mount.firstChild) mount.removeChild(mount.firstChild);
 
       questions.forEach(function (q) {
         mount.appendChild(buildQuestion(q));
       });
 
-      mount.dataset.initialized = "1"; // prevent reprocess of this mount
+      // Let wireQuiz own the `initialized` flag — setting it here would make
+      // wireQuiz bail out at its top and silently skip click-handler wiring.
       wireQuiz(mount);
     });
   }
