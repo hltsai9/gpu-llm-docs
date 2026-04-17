@@ -4,6 +4,7 @@ site_author: Hsing-Lin
 
 theme:
   name: material
+  language: en
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -62,6 +63,53 @@ markdown_extensions:
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - javascripts/quiz.js
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+          site_name: "GPUs and LLMs — A Story-Driven Guide"
+        - locale: zh-TW
+          name: 繁體中文
+          build: true
+          site_name: "GPU 與 LLM —— 故事導向的學習指南"
+          nav_translations:
+            Home: 首頁
+            "Part 1 — Why GPUs": 第一部分 —— 為什麼需要 GPU
+            "The cafeteria vs. the steakhouse": 自助餐廳 vs. 牛排館
+            "Throughput over latency": 吞吐量優於延遲
+            "The synchronized kitchen (SIMT)": 同步運作的廚房(SIMT)
+            "Part 2 — GPU Architecture": 第二部分 —— GPU 架構
+            "Anatomy of a GPU": GPU 的解剖學
+            "The memory hierarchy": 記憶體階層
+            "Warps, threads, and blocks": Warp、執行緒與區塊
+            "Tensor Cores: power tools": Tensor Core:專業級電動工具
+            "Part 3 — LLM Inference": 第三部分 —— LLM 推論
+            "The life of a token": 一個 token 的一生
+            "Attention, explained slowly": 慢慢講清楚 Attention
+            "The KV cache": KV 快取
+            "Prefill vs. decode": Prefill 與 Decode
+            "Batching many diners at once": 同時服務多桌客人(Batching)
+            "Memory-bound vs. compute-bound": 受限於記憶體 vs. 受限於運算
+            "Quizzes": 測驗題庫
+            "CPU vs GPU": CPU vs GPU
+            "Throughput vs latency": 吞吐量 vs. 延遲
+            "SIMT": SIMT
+            "Memory hierarchy": 記憶體階層
+            "Tensor Cores": Tensor Cores
+            "Life of a token": 一個 token 的一生
+            "Attention": Attention
+            "KV cache": KV 快取
+            "Batching": Batching
+            "Roofline": Roofline
 
 nav:
   - Home: index.md

@@ -28,6 +28,60 @@
 
   var CHOICE_KEYS = ["A", "B", "C", "D", "E", "F"];
 
+  // Basic i18n: pick from a dictionary based on the current document locale.
+  // We detect the language two ways: (a) <html lang="..."> set by MkDocs
+  // Material when the static-i18n plugin is active, and (b) the URL path
+  // containing a locale segment like "/zh-TW/" (belt-and-braces fallback
+  // for local file:// previews where lang may not be set).
+  var STRINGS = {
+    "en": {
+      answeredSoFar: function (n, total, correct) {
+        return "Answered " + n + " / " + total + " · Correct: " + correct;
+      },
+      answeredNone: function (total) {
+        return "Answered 0 / " + total;
+      },
+      finalScore: function (correct, total) {
+        return "Final score: " + correct + " / " + total;
+      },
+      reset: "Reset quiz"
+    },
+    "zh-TW": {
+      answeredSoFar: function (n, total, correct) {
+        return "已作答 " + n + " / " + total + " · 答對:" + correct;
+      },
+      answeredNone: function (total) {
+        return "已作答 0 / " + total;
+      },
+      finalScore: function (correct, total) {
+        return "最終得分:" + correct + " / " + total;
+      },
+      reset: "重新作答"
+    }
+  };
+
+  function detectLocale() {
+    try {
+      var htmlLang = (document.documentElement.getAttribute("lang") || "").trim();
+      if (htmlLang) {
+        // Normalize e.g. "zh-Hant-TW" or "zh_TW" to our dictionary keys.
+        var lower = htmlLang.toLowerCase();
+        if (lower.indexOf("zh") === 0) return "zh-TW";
+        if (lower.indexOf("en") === 0) return "en";
+      }
+      var path = (typeof location !== "undefined" && location.pathname) || "";
+      if (path.indexOf("/zh-TW/") !== -1 || path.indexOf("/zh-tw/") !== -1) {
+        return "zh-TW";
+      }
+    } catch (e) { /* no-op */ }
+    return "en";
+  }
+
+  function t() {
+    var loc = detectLocale();
+    return STRINGS[loc] || STRINGS["en"];
+  }
+
   function el(tag, attrs, children) {
     var node = document.createElement(tag);
     if (attrs) {
@@ -83,8 +137,10 @@
     var questions = quiz.querySelectorAll(".q");
     if (questions.length === 0) return;
 
+    var strings = t();
+
     var score = el("div", { class: "quiz-score" });
-    score.textContent = "Answered 0 / " + questions.length;
+    score.textContent = strings.answeredNone(questions.length);
     quiz.appendChild(score);
 
     var answered = 0;
@@ -122,12 +178,13 @@
 
           answered += 1;
           if (answered < questions.length) {
-            score.textContent =
-              "Answered " + answered + " / " + questions.length +
-              " · Correct: " + correctCount;
+            score.textContent = strings.answeredSoFar(
+              answered, questions.length, correctCount
+            );
           } else {
-            score.textContent =
-              "Final score: " + correctCount + " / " + questions.length;
+            score.textContent = strings.finalScore(
+              correctCount, questions.length
+            );
             score.classList.add("final");
           }
         });
@@ -135,7 +192,7 @@
     });
 
     var reset = el("button", { type: "button", class: "quiz-reset" });
-    reset.textContent = "Reset quiz";
+    reset.textContent = strings.reset;
     reset.addEventListener("click", function () {
       answered = 0;
       correctCount = 0;
@@ -148,7 +205,7 @@
         var explain = q.querySelector(".explain");
         if (explain) explain.classList.remove("show");
       });
-      score.textContent = "Answered 0 / " + questions.length;
+      score.textContent = strings.answeredNone(questions.length);
       score.classList.remove("final");
     });
     quiz.appendChild(reset);
