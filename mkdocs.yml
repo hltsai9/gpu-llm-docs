@@ -83,6 +83,15 @@ plugins:
           site_name: "GPU 與 LLM —— 故事導向的學習指南"
           nav_translations:
             Home: 首頁
+            "Learning Paths": 學習路徑
+            "Developer": 開發者
+            "ML Engineer": ML 工程師
+            "Product Manager": 產品經理
+            "Creative": 創作者
+            "Infrastructure & Platform": 基礎設施與平台
+            "Foundations": 基礎篇
+            "Applying LLMs": 應用 LLM
+            "Product & Craft": 產品與創作
             "Part 1 — Why GPUs": 第一部分 —— 為什麼需要 GPU
             "The cafeteria vs. the steakhouse": 自助餐廳 vs. 牛排館
             "Throughput over latency": 吞吐量優於延遲
@@ -115,26 +124,64 @@ plugins:
 
 nav:
   - Home: index.md
-  - "Part 1 — Why GPUs":
-      - 01-why-gpu/index.md
-      - "The cafeteria vs. the steakhouse": 01-why-gpu/cpu-vs-gpu.md
-      - "Throughput over latency": 01-why-gpu/throughput-vs-latency.md
-      - "The synchronized kitchen (SIMT)": 01-why-gpu/simt.md
-  - "Part 2 — GPU Architecture":
-      - 02-gpu-architecture/index.md
-      - "Anatomy of a GPU": 02-gpu-architecture/anatomy.md
-      - "The memory hierarchy": 02-gpu-architecture/memory-hierarchy.md
-      - "Warps, threads, and blocks": 02-gpu-architecture/warps-threads-blocks.md
-      - "Tensor Cores: power tools": 02-gpu-architecture/tensor-cores.md
-  - "Part 3 — LLM Inference":
-      - 03-llm-inference/index.md
-      - "What is a token?": 03-llm-inference/token.md
-      - "The life of a token": 03-llm-inference/life-of-a-token.md
-      - "Attention, explained slowly": 03-llm-inference/attention.md
-      - "The KV cache": 03-llm-inference/kv-cache.md
-      - "Prefill vs. decode": 03-llm-inference/prefill-vs-decode.md
-      - "Batching many diners at once": 03-llm-inference/batching.md
-      - "Memory-bound vs. compute-bound": 03-llm-inference/roofline.md
+  - "Learning Paths":
+      - learning-paths/index.md
+      - "Developer": learning-paths/developer.md
+      - "ML Engineer": learning-paths/ml-engineer.md
+      - "Product Manager": learning-paths/product-manager.md
+      - "Creative": learning-paths/creative.md
+      - "Infrastructure & Platform": learning-paths/infrastructure.md
+  - "Foundations":
+      - "Part 1 — Why GPUs":
+          - 01-why-gpu/index.md
+          - "The cafeteria vs. the steakhouse": 01-why-gpu/cpu-vs-gpu.md
+          - "Throughput over latency": 01-why-gpu/throughput-vs-latency.md
+          - "The synchronized kitchen (SIMT)": 01-why-gpu/simt.md
+      - "Part 2 — GPU Architecture":
+          - 02-gpu-architecture/index.md
+          - "Anatomy of a GPU": 02-gpu-architecture/anatomy.md
+          - "The memory hierarchy": 02-gpu-architecture/memory-hierarchy.md
+          - "Warps, threads, and blocks": 02-gpu-architecture/warps-threads-blocks.md
+          - "Tensor Cores: power tools": 02-gpu-architecture/tensor-cores.md
+      - "Part 3 — LLM Inference":
+          - 03-llm-inference/index.md
+          - "What is a token?": 03-llm-inference/token.md
+          - "The life of a token": 03-llm-inference/life-of-a-token.md
+          - "Attention, explained slowly": 03-llm-inference/attention.md
+          - "The KV cache": 03-llm-inference/kv-cache.md
+          - "Prefill vs. decode": 03-llm-inference/prefill-vs-decode.md
+          - "Batching many diners at once": 03-llm-inference/batching.md
+          - "Memory-bound vs. compute-bound": 03-llm-inference/roofline.md
+  - "Applying LLMs":
+      - "Part 4 — Training & Fine-Tuning":
+          - 04-training/index.md
+          - "Training vs. inference": 04-training/training-vs-inference.md
+          - "The fine-tuning spectrum": 04-training/fine-tuning-spectrum.md
+          - "Quantization": 04-training/quantization.md
+          - "Distributed training": 04-training/distributed-training.md
+      - "Part 5 — Serving & Deployment":
+          - 05-serving/index.md
+          - "Inference servers compared": 05-serving/inference-servers.md
+          - "Continuous batching & paged attention": 05-serving/continuous-batching.md
+          - "Cluster operations": 05-serving/cluster-ops.md
+      - "Part 6 — Building with LLMs":
+          - 06-building/index.md
+          - "API basics": 06-building/api-basics.md
+          - "Prompt engineering": 06-building/prompt-engineering.md
+          - "Retrieval-augmented generation": 06-building/rag.md
+          - "Tool use and agents": 06-building/tool-use-agents.md
+          - "Evals": 06-building/evals.md
+  - "Product & Craft":
+      - "Part 7 — Strategy & Product":
+          - 07-strategy/index.md
+          - "Capability mapping": 07-strategy/capability-mapping.md
+          - "Economics of LLM features": 07-strategy/economics.md
+          - "Risk and governance": 07-strategy/risk-governance.md
+      - "Part 8 — Creative Workflows":
+          - 08-creative/index.md
+          - "Diffusion basics for creatives": 08-creative/diffusion-basics.md
+          - "Style and voice": 08-creative/style-and-voice.md
+          - "Creative workflow integration": 08-creative/creative-integration.md
   - "Quizzes":
       - quizzes/index.md
       - "Part 1 — Why GPUs":
