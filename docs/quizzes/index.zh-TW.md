@@ -27,5 +27,38 @@
 - [Batching](batching.md)
 - [受限於記憶體 vs. 受限於運算(roofline)](roofline.md)
 
+## 第四部分 —— 訓練與 Fine-Tuning
+
+- [訓練 vs. 推論](training-vs-inference.md)
+- [Fine-tuning 光譜](fine-tuning-spectrum.md)
+- [量化深入](quantization.md)
+- [分散式訓練](distributed-training.md)
+
+## 第五部分 —— Serving 與部署
+
+- [Inference server](inference-servers.md)
+- [Continuous batching](continuous-batching.md)
+- [GPU cluster 運營](cluster-ops.md)
+
+## 第六部分 —— 用 LLM 打造東西
+
+- [開發者的 API 基礎](api-basics.md)
+- [Prompt engineering 模式](prompt-engineering.md)
+- [Retrieval-Augmented Generation](rag.md)
+- [Tool use 和 agent](tool-use-agents.md)
+- [真正可用的 eval](evals.md)
+
+## 第七部分 —— 策略與產品
+
+- [能力地圖](capability-mapping.md)
+- [LLM 產品的經濟學](economics.md)
+- [風險與治理](risk-governance.md)
+
+## 第八部分 —— 創意工作流
+
+- [創作者的 diffusion 基礎](diffusion-basics.md)
+- [風格與聲音](style-and-voice.md)
+- [創意工作流程整合](creative-integration.md)
+
 !!! tip "怎麼用這些測驗"
     在重讀章節之**前**先做一遍測驗。答錯的題目就是那一章裡值得再翻一次的地方。每一題的答案,對應的那篇文章裡一定都有。

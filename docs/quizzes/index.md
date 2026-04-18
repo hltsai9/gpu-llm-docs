@@ -27,5 +27,38 @@ No scores are saved anywhere; refresh to start over. Click **Reset quiz** at the
 - [Batching](batching.md)
 - [Memory-bound vs. compute-bound (roofline)](roofline.md)
 
+## Part 4 — Training & Fine-Tuning
+
+- [Training vs. inference](training-vs-inference.md)
+- [The fine-tuning spectrum](fine-tuning-spectrum.md)
+- [Quantization deep dive](quantization.md)
+- [Distributed training](distributed-training.md)
+
+## Part 5 — Serving & Deployment
+
+- [Inference servers](inference-servers.md)
+- [Continuous batching](continuous-batching.md)
+- [GPU cluster operations](cluster-ops.md)
+
+## Part 6 — Building with LLMs
+
+- [API basics for developers](api-basics.md)
+- [Prompt engineering patterns](prompt-engineering.md)
+- [Retrieval-Augmented Generation](rag.md)
+- [Tool use and agents](tool-use-agents.md)
+- [Evaluation that works](evals.md)
+
+## Part 7 — Strategy & Product
+
+- [Capability mapping](capability-mapping.md)
+- [Economics of LLM products](economics.md)
+- [Risk and governance](risk-governance.md)
+
+## Part 8 — Creative Workflows
+
+- [Diffusion basics for creatives](diffusion-basics.md)
+- [Style and voice](style-and-voice.md)
+- [Creative workflow integration](creative-integration.md)
+
 !!! tip "How to use these"
     Try the quiz *before* re-reading the chapter. Questions you get wrong point to the parts of the chapter worth revisiting. Everything you need to answer every question is in the corresponding article.

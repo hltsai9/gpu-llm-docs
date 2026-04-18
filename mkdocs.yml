@@ -201,3 +201,26 @@ nav:
           - "Prefill vs. decode": quizzes/prefill-vs-decode.md
           - "Batching": quizzes/batching.md
           - "Roofline": quizzes/roofline.md
+      - "Part 4 — Training & Fine-Tuning":
+          - "Training vs. inference": quizzes/training-vs-inference.md
+          - "Fine-tuning spectrum": quizzes/fine-tuning-spectrum.md
+          - "Quantization": quizzes/quantization.md
+          - "Distributed training": quizzes/distributed-training.md
+      - "Part 5 — Serving & Deployment":
+          - "Inference servers": quizzes/inference-servers.md
+          - "Continuous batching": quizzes/continuous-batching.md
+          - "Cluster operations": quizzes/cluster-ops.md
+      - "Part 6 — Building with LLMs":
+          - "API basics": quizzes/api-basics.md
+          - "Prompt engineering": quizzes/prompt-engineering.md
+          - "RAG": quizzes/rag.md
+          - "Tool use and agents": quizzes/tool-use-agents.md
+          - "Evaluation": quizzes/evals.md
+      - "Part 7 — Strategy & Product":
+          - "Capability mapping": quizzes/capability-mapping.md
+          - "Economics": quizzes/economics.md
+          - "Risk and governance": quizzes/risk-governance.md
+      - "Part 8 — Creative Workflows":
+          - "Diffusion basics": quizzes/diffusion-basics.md
+          - "Style and voice": quizzes/style-and-voice.md
+          - "Creative integration": quizzes/creative-integration.md
