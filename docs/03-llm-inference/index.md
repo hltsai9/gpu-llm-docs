@@ -16,6 +16,7 @@ Imagine watching a single order travel through the kitchen from ticket to plate.
 
 ## Chapters in this part
 
+- [What is a token?](token.md) — what the thing actually is, how BPE builds the vocabulary, and why non-English text costs more.
 - [The life of a token](life-of-a-token.md) — the high-level flow, from prompt to output.
 - [Attention, explained slowly](attention.md) — what the most-discussed operation in ML actually computes, and why it's expensive.
 - [The KV cache](kv-cache.md) — the clever trick that makes streaming generation fast, and the reason LLM servers eat memory.

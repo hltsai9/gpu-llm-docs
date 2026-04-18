@@ -19,6 +19,7 @@ No scores are saved anywhere; refresh to start over. Click **Reset quiz** at the
 
 ## Part 3 — LLM Inference
 
+- [What is a token?](token.md)
 - [The life of a token](life-of-a-token.md)
 - [Attention](attention.md)
 - [The KV cache](kv-cache.md)

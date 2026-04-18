@@ -19,6 +19,7 @@
 
 ## 第三部分 —— LLM 推論
 
+- [Token 是什麼?](token.md)
 - [一個 token 的一生](life-of-a-token.md)
 - [Attention](attention.md)
 - [KV 快取](kv-cache.md)

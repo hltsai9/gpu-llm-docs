@@ -93,6 +93,7 @@ plugins:
             "Warps, threads, and blocks": Warp、執行緒與區塊
             "Tensor Cores: power tools": Tensor Core:專業級電動工具
             "Part 3 — LLM Inference": 第三部分 —— LLM 推論
+            "What is a token?": Token 是什麼?
             "The life of a token": 一個 token 的一生
             "Attention, explained slowly": 慢慢講清楚 Attention
             "The KV cache": KV 快取
@@ -105,6 +106,7 @@ plugins:
             "SIMT": SIMT
             "Memory hierarchy": 記憶體階層
             "Tensor Cores": Tensor Cores
+            "What is a token?": Token 是什麼?
             "Life of a token": 一個 token 的一生
             "Attention": Attention
             "KV cache": KV 快取
@@ -126,6 +128,7 @@ nav:
       - "Tensor Cores: power tools": 02-gpu-architecture/tensor-cores.md
   - "Part 3 — LLM Inference":
       - 03-llm-inference/index.md
+      - "What is a token?": 03-llm-inference/token.md
       - "The life of a token": 03-llm-inference/life-of-a-token.md
       - "Attention, explained slowly": 03-llm-inference/attention.md
       - "The KV cache": 03-llm-inference/kv-cache.md
@@ -144,6 +147,7 @@ nav:
           - "Warps, threads, and blocks": quizzes/warps-threads-blocks.md
           - "Tensor Cores": quizzes/tensor-cores.md
       - "Part 3 — LLM Inference":
+          - "What is a token?": quizzes/token.md
           - "Life of a token": quizzes/life-of-a-token.md
           - "Attention": quizzes/attention.md
           - "KV cache": quizzes/kv-cache.md
