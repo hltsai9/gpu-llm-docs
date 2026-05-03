@@ -21,10 +21,10 @@ Six questions on SMs, CUDA cores, tensor cores, and HBM. Chapter: [Anatomy of a 
       "answer": "C",
       "stem": "<strong>Q2.</strong> What does the GigaThread engine do?",
       "choices": {
-        "A": "Runs graphics workloads on the GPU",
-        "B": "Boosts clock speeds during heavy kernels",
+        "A": "Dynamically boosts clock speeds when the chip detects heavy compute workloads",
+        "B": "Manages power consumption by throttling voltage across multiple SMs",
         "C": "Distributes thread blocks across the SMs when a kernel is launched",
-        "D": "Compresses data before writing to HBM"
+        "D": "Compresses data in the L2 cache before writing to HBM"
       },
       "explain": "<p>The GigaThread engine is the chip-wide scheduler. You say \"launch this kernel across N blocks\"; it decides which SM runs which block, and hands out more blocks as SMs finish.</p>"
     },
@@ -33,9 +33,9 @@ Six questions on SMs, CUDA cores, tensor cores, and HBM. Chapter: [Anatomy of a 
       "stem": "<strong>Q3.</strong> Where does shared memory physically live?",
       "choices": {
         "A": "Inside each SM — fast, small, private to that SM's thread blocks",
-        "B": "In HBM, off-die",
-        "C": "In CPU RAM, accessible over PCIe",
-        "D": "It's a software fiction backed by L2"
+        "B": "In the main HBM storage, accessible by all SMs via L2 cache hierarchy",
+        "C": "Distributed between the L1 cache and local CPU memory accessed over PCIe",
+        "D": "Embedded in the warp scheduler's register file with L2 cache backing"
       },
       "explain": "<p>Shared memory (~256 KB per SM on H100) is on-die inside each SM. It's many times faster than HBM and is the \"workshop stockroom\" where blocks stage data they'll reuse.</p>"
     },
@@ -54,10 +54,10 @@ Six questions on SMs, CUDA cores, tensor cores, and HBM. Chapter: [Anatomy of a 
       "answer": "B",
       "stem": "<strong>Q5.</strong> Which on-chip structure actually performs the bulk of LLM arithmetic?",
       "choices": {
-        "A": "CUDA cores (FP32 scalar ops)",
+        "A": "CUDA cores performing scalar floating-point operations at FP32",
         "B": "Tensor cores — purpose-built for small matrix multiply-accumulate",
-        "C": "The L2 cache",
-        "D": "The warp scheduler"
+        "C": "The L2 cache controller managing data flow to tensor cores",
+        "D": "The GigaThread scheduler distributing work across SMs"
       },
       "explain": "<p>Tensor cores dominate an H100's usable FLOPs: ~989 TFLOPs at BF16 vs ~67 TFLOPs on CUDA cores at FP32. Modern LLM kernels funnel work into tensor cores.</p>"
     },
@@ -66,9 +66,9 @@ Six questions on SMs, CUDA cores, tensor cores, and HBM. Chapter: [Anatomy of a 
       "stem": "<strong>Q6.</strong> Why don't tensor cores become the bottleneck during LLM inference?",
       "choices": {
         "A": "They finish faster than HBM can feed them — the chip is memory-bound on most workloads",
-        "B": "They're too slow for modern models",
-        "C": "They're only active during training",
-        "D": "CUDA cores do all the real work"
+        "B": "They're specialized for training and disabled during inference operations",
+        "C": "Inference kernels primarily use CUDA cores instead of tensor cores",
+        "D": "The warp scheduler limits tensor core instruction throughput significantly"
       },
       "explain": "<p>Tensor cores are \"overqualified\" — they could consume far more data than HBM can deliver. The bottleneck is almost always memory bandwidth, not compute.</p>"
     }
